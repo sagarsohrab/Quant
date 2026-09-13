@@ -1,0 +1,42 @@
+{
+  "project": "Quant Journey — /Users/sagar.sohrab/Quant",
+  "goal_cascade": [
+    "1. Master quant + LLM/tech stack (learner)",
+    "2. Apply to WorldQuant Quantitative Researcher role (Mumbai/Bengaluru)",
+    "3. Use repo as proof-of-skill for the application"
+  ],
+  "current_phase": "building WorldQuant application collateral (resume/doc/interview prep) + BRAIN alpha practice",
+  "repo_state": {
+    "git": "initialized on branch 'main', NO commits yet — first commit deferred until user provides GitHub repo URL + says 'go'",
+    "git_remote": "none — DO NOT push until user provides repo + explicit go signal",
+    "tests": "run:  cd /Users/sagar.sohrab/Quant && uv run --extra ml python -m pytest qj/ -q   (all suites green)",
+    "deps": "uv-managed; extras: ml (sklearn/lgbm/xgb), llm (torch). Apple-chip lgbm needs libomp: brew install libomp",
+    "data": "cached Parquet in data/ (gitignored): binance_BTCUSDT_1h.parquet (~3000 hourly bars)"
+  },
+  "layers_built": {
+    "01_data": "qj/data: Binance REST provider, Parquet store, source-agnostic BaseDataProvider",
+    "02_features": "qj/features/engine.py: log returns, momentum, vol, zscore, calendar, no-lookahead",
+    "03_models": "qj/models: GBM direction classifier, walk-forward eval + OOS predictions, persist",
+    "04_backtest": "qj/backtest/engine.py: signal->position, costs, Sharpe/maxDD/Calmar",
+    "05_live": "qj/live: Binance WebSocket stream + LiveForecaster",
+    "06_mlops": "qj/mlops: ModelRegistry + DriftMonitor (KS stat)",
+    "07_llm_arch": "qj/llm/minigpt.py: from-scratch GPT; train_demo.py shows ppl 25->2",
+    "brain": "qj/brain: 12 WQ-style alphas, neutralization/residualization, IS/OOS evaluate; 11 pytest green"
+  },
+  "application_kit": {
+    "resume": "docs/apply/WQ_resume.md",
+    "cover_letter": "docs/apply/cover_letter.md",
+    "linkedin_note": "docs/apply/linkedin_note.md",
+    "application_essay": "docs/apply/application_essay.md",
+    "interview_prep": "docs/interview/interview_prep.md (68 Qs)",
+    "concepts_repo_map": "docs/interview/concepts_repo_map.md",
+    "recruiter_readme": "docs/RECRUITER_README.md",
+    "deploy_guide": "scripts/deploy.md",
+    "ci_workflow": ".github/workflows/ci.yml"
+  },
+  "pending_placeholders_to_fill": [
+    "[LinkedIn URL]", "[GitHub URL]", "[REPO_URL]", "[Date]"
+  ],
+  "undo_notes": "No commits made; if user wants earlier state, nothing committed yet so simply dont commit.",
+  "timeout_note": "Everything work-in-progress is written directly to disk (docs/, qj/, scripts/, .github/). No output is held only in memory. If the session times out, read this file and the docs/ dir to resume."
+}
